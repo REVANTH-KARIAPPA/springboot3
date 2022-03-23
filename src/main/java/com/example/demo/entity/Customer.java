@@ -1,8 +1,10 @@
  package com.example.demo.entity;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Objects; 
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -11,12 +13,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 
 import com.example.demo.dto.CustomerType;
+
+ 
 @Entity
 public class Customer {
 	@Id
@@ -25,6 +28,12 @@ public class Customer {
 	private String firstName;
 	private String lastName;
 	private String email;
+	
+	
+	private LocalDate dateOfBirth ;
+	
+	
+	 
 	
 	@Enumerated(EnumType.STRING)
 	private CustomerType customerType;
@@ -84,6 +93,16 @@ public class Customer {
 
 	public void setCustomerType(CustomerType customerType) {
 		this.customerType = customerType;
+	}
+	
+
+	
+	public LocalDate getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(LocalDate dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 
 	@Override

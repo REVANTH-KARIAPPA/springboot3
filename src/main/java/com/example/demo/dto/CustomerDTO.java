@@ -1,13 +1,18 @@
 package com.example.demo.dto;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects; 
 
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 
@@ -30,6 +35,9 @@ public class CustomerDTO {
 	@Email(message="Please provide a valid email address")
 	private String email;
 	private CustomerType customerType;
+	@NotNull(message = "DOB cannot be empty")
+	@Past(message = "DOB cannot be in future")
+	private LocalDate dateOfBirth;
 	
 	@Valid
 	private AddressDTO addressDTO;
@@ -79,6 +87,14 @@ public class CustomerDTO {
 	}
 	public void setCustomerType(CustomerType customerType) {
 		this.customerType = customerType;
+	}
+	
+	
+	public LocalDate getDateOfBirth() {
+		return dateOfBirth;
+	}
+	public void setDateOfBirth(LocalDate dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 	@Override
 	public int hashCode() {

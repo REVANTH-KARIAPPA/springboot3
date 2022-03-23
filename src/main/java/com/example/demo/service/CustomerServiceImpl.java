@@ -36,6 +36,7 @@ public class CustomerServiceImpl implements CustomerService {
 		customer.setLastName(customerDTO.getLastName());
 		customer.setEmail(customerDTO.getEmail());
 		customer.setCustomerType(customerDTO.getCustomerType());
+		customer.setDateOfBirth(customerDTO.getDateOfBirth());
 		
 		Address address=new Address();
 		address.setStreetNumber(customerDTO.getAddressDTO().getStreetNumber());
@@ -73,6 +74,7 @@ public class CustomerServiceImpl implements CustomerService {
 	    	customerDTO.setLastName(customer.getLastName());
 	    	customerDTO.setCustomerType(customer.getCustomerType());
 	    	customerDTO.setCustomerId(customer.getCustomerId());
+	    	customerDTO.setDateOfBirth(customer.getDateOfBirth());
 	    	customerDTO.setAddress(customer.getAddress());
 	    	customerDTO.setProduct(customer.getProduct());
 	    	return customerDTO;
@@ -105,6 +107,7 @@ public class CustomerServiceImpl implements CustomerService {
 	    	customerDTO.setLastName(customer.getLastName());
 	    	customerDTO.setCustomerType(customer.getCustomerType());
 	    	customerDTO.setCustomerId(customer.getCustomerId());
+	    	customerDTO.setDateOfBirth(customer.getDateOfBirth());
 	    	
 	    	AddressDTO addressDTO=new AddressDTO();
 			addressDTO.setStreetNumber(customer.getAddress().getStreetNumber());
@@ -143,6 +146,7 @@ public class CustomerServiceImpl implements CustomerService {
 			customer.setLastName(customerDTO.getLastName());
 			customer.setEmail(customerDTO.getEmail());
 			customer.setCustomerType(customerDTO.getCustomerType());
+			customer.setDateOfBirth(customerDTO.getDateOfBirth());
 			
 			
 			
