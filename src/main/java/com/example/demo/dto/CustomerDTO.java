@@ -35,6 +35,7 @@ public class CustomerDTO {
 	@Email(message="Please provide a valid email address")
 	private String email;
 	private CustomerType customerType;
+	
 	@NotNull(message = "DOB cannot be empty")
 	@Past(message = "DOB cannot be in future")
 	private LocalDate dateOfBirth;

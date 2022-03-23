@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 
 
 @EntityScan(basePackageClasses = {  SpringBoot3Application.class, Jsr310JpaConverters.class })
