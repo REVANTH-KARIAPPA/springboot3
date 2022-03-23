@@ -19,7 +19,7 @@ import javax.persistence.OneToOne;
 
 import com.example.demo.dto.CustomerType;
 
- 
+
 @Entity
 public class Customer {
 	@Id

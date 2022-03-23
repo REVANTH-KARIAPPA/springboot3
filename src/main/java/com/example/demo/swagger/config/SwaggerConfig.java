@@ -1,4 +1,4 @@
-package com.example.demo.controller.swaggerconfiguration;
+package com.example.demo.swagger.config;
 import com.google.common.base.Predicate;
 import static springfox.documentation.builders.PathSelectors.regex;
 

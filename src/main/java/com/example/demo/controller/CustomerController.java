@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dto.CustomerDTO;
+import com.example.demo.dto.ProductDTO;
 import com.example.demo.entity.Customer;
 import com.example.demo.service.CustomerService;
 @RestController
@@ -61,10 +62,25 @@ public class CustomerController {
     @PatchMapping("/{customerId}")
     public ResponseEntity<String>patchCustomer(@RequestBody CustomerDTO customerDTO,@PathVariable Integer customerId){
     	
-    	customerService.updateById(customerId,customerDTO);
+    	customerService.updateCustomerPartially(customerDTO,customerId);
     	return new ResponseEntity<>("Customer Record updated Successfully",HttpStatus.OK);
     	
     }
     
+  @PatchMapping("/{customerId}/patch/{productId}")
+   public 	ResponseEntity<String>patchProduct(@RequestBody ProductDTO productDTO,@PathVariable Integer customerId,@PathVariable Integer productId){
+   	customerService.updateProductPartially(customerId,productDTO,productId);
+   	return new ResponseEntity<>("Customer Record Patched Successfully",HttpStatus.OK);
+   }
+    @PutMapping("/{customerId}/update/{productId}")
+    public 	ResponseEntity<String>updateProduct(@RequestBody ProductDTO productDTO,@PathVariable Integer customerId,@PathVariable Integer productId){
+    	customerService.updateByProductId(customerId,productDTO,productId);
+    	return new ResponseEntity<>("Customer Record update Successfully",HttpStatus.OK);
+    }
+    @PostMapping("/{customerId}/create")
+    public ResponseEntity<String> createAProductRecord(@RequestBody ProductDTO productDTO,@PathVariable Integer customerId) {
+    	customerService.creatProductRecord(productDTO, customerId);
+    	return new ResponseEntity<>("Product Record Save Successfully",HttpStatus.OK);
+    }
   
 }

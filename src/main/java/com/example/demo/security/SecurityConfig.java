@@ -32,14 +32,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		                    .roles(users.getRole());
 		        }
 		    	
-		        auth.inMemoryAuthentication()
-		        .withUser("root")
-		        .password(passwordEncoder().encode("root123"))
-		     	.roles("CUSTOMER")
-		     	.and()
-		        .withUser("boot")
-		     	.password(passwordEncoder().encode("boot123"))
-		     	 .roles("ADMIN");
+	        auth.inMemoryAuthentication()
+	        .withUser("root")
+	        .password(passwordEncoder().encode("root123"))
+	     	.roles("CUSTOMER")
+	     	.and()
+	        .withUser("boot")
+	     	.password(passwordEncoder().encode("boot123"))
+	     	 .roles("ADMIN");
 		    }
 		
 	

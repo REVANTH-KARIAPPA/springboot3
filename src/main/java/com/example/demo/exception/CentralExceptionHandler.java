@@ -19,5 +19,10 @@ public class CentralExceptionHandler {
 		String message=e.getBindingResult().getFieldErrors().stream().map(x->x.getDefaultMessage()).collect(Collectors.joining(","));
 	return new ResponseEntity<>(message,HttpStatus.BAD_REQUEST);
 	}
+	@ExceptionHandler(PoductIdException.class)
+	public ResponseEntity<String>poductIdException(PoductIdException e){
+		
+	return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
 
+}
 }
